@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sandor Pecsi – Cybersecurity Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0d1b2a;--teal:#0f6e56;--teal-light:#e1f5ee;--teal-mid:#1d9e75;
+  --text:#1a1a2e;--muted:#5f6b7c;--border:#e2e8f0;--bg:#fafbfc;--card:#fff;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:920px;margin:0 auto;padding:0 2rem}
+
+/* HEADER */
+header{background:var(--navy);color:#fff;padding:3.5rem 0 2.5rem;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;top:-80px;right:-80px;width:340px;height:340px;border-radius:50%;border:1px solid rgba(29,158,117,0.18)}
+header::after{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;border:1px solid rgba(29,158,117,0.28)}
+.header-inner{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+.avatar{width:68px;height:68px;border-radius:50%;background:var(--teal-mid);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:500;color:#fff;font-family:'DM Serif Display',serif;margin-bottom:1rem;flex-shrink:0}
+h1{font-family:'DM Serif Display',serif;font-size:2.5rem;font-weight:400;line-height:1.1;color:#fff}
+.tagline{color:var(--teal-mid);font-size:0.88rem;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;margin-top:0.3rem}
+.status-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(29,158,117,0.15);border:1px solid rgba(29,158,117,0.4);color:var(--teal-mid);padding:6px 14px;border-radius:100px;font-size:12px;font-weight:500}
+.status-badge::before{content:'';width:7px;height:7px;background:var(--teal-mid);border-radius:50%}
+.header-sub{color:rgba(255,255,255,0.45);font-size:12px;margin-top:0.5rem}
+
+/* SOCIALS BAR */
+.socials{background:var(--navy);border-top:1px solid rgba(255,255,255,0.07);padding:0.85rem 0}
+.socials-inner{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}
+.social-link{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.55);font-size:13px;transition:color 0.2s}
+.social-link:hover{color:var(--teal-mid);text-decoration:none}
+.si{width:14px;height:14px;flex-shrink:0;fill:currentColor}
+
+/* MAIN LAYOUT */
+main{padding:3rem 0 4rem}
+.grid{display:grid;grid-template-columns:220px 1fr;gap:2.5rem;align-items:start}
+
+/* SECTIONS */
+section{margin-bottom:2.5rem}
+h2{font-family:'DM Serif Display',serif;font-size:1.2rem;font-weight:400;color:var(--text);margin-bottom:0.9rem;padding-bottom:0.45rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+h2 .dot{width:7px;height:7px;background:var(--teal-mid);border-radius:50%;flex-shrink:0}
+h3{font-size:0.93rem;font-weight:500;color:var(--text)}
+p,li{color:var(--muted);font-size:13.5px}
+
+/* SIDEBAR */
+.info-row{display:flex;flex-direction:column;gap:0.65rem}
+.info-item{display:flex;flex-direction:column;gap:1px}
+.info-label{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);font-weight:500}
+.info-value{color:var(--text);font-size:13px}
+.info-value a{color:var(--teal)}
+
+/* SKILLS BARS */
+.skills-grid{display:flex;flex-direction:column;gap:0.65rem}
+.skill-row{display:flex;flex-direction:column;gap:4px}
+.skill-label{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted)}
+.skill-bar{height:3px;background:var(--border);border-radius:2px}
+.skill-fill{height:100%;background:var(--teal-mid);border-radius:2px}
+
+/* TAGS */
+.tag-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:0.5rem}
+.tag{background:var(--teal-light);color:var(--teal);font-size:11px;font-weight:500;padding:3px 9px;border-radius:100px;font-family:'DM Mono',monospace}
+.tag-gray{background:#f1f0e8;color:#5f5e5a}
+
+/* ABOUT */
+.about-text{font-size:13.5px;color:var(--muted);line-height:1.85}
+
+/* EDUCATION CARD */
+.edu-card{background:var(--card);border:0.5px solid var(--border);border-radius:10px;padding:1rem 1.25rem;border-left:3px solid var(--teal-mid);margin-bottom:0.8rem}
+.edu-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.edu-badge{font-size:11px;color:var(--teal);background:var(--teal-light);padding:2px 9px;border-radius:100px;font-weight:500;white-space:nowrap}
+.edu-meta{font-size:12px;color:var(--muted);margin-top:2px}
+.level-pills{display:flex;gap:6px;margin-top:0.6rem;flex-wrap:wrap}
+.level-pill{font-size:11px;padding:2px 9px;border-radius:100px;font-weight:500}
+.done{background:#e1f5ee;color:#0f6e56}
+.upcoming{background:#faeeda;color:#854f0b}
+
+/* EXPERIENCE */
+.exp-card{background:var(--card);border:0.5px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin-bottom:0.9rem}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;margin-bottom:0.45rem}
+.exp-date{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;white-space:nowrap}
+.exp-role{font-size:14px;font-weight:500;color:var(--text)}
+.exp-org{font-size:12px;color:var(--muted)}
+.exp-bullets{margin-top:0.5rem;padding-left:1.1rem}
+.exp-bullets li{font-size:12.5px;color:var(--muted);margin-bottom:3px}
+
+/* PROJECTS */
+.project-card{background:var(--card);border:0.5px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin-bottom:0.9rem}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem}
+.project-badge{font-size:10px;font-weight:500;padding:2px 8px;border-radius:100px;font-family:'DM Mono',monospace}
+.ctf{background:#e6f1fb;color:#185fa5}
+.homelab{background:#fbeaf0;color:#993556}
+.proj{background:#eaf3de;color:#3b6d11}
+.project-desc{font-size:12.5px;color:var(--muted);margin-top:0.35rem;line-height:1.7}
+
+/* CERTS */
+.cert-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;padding:0.4rem 1.25rem}
+.cert-item{display:flex;align-items:center;gap:10px;padding:0.6rem 0;border-bottom:0.5px solid var(--border)}
+.cert-item:last-child{border-bottom:none}
+.cert-icon{width:28px;height:28px;border-radius:6px;background:var(--teal-light);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cert-icon svg{width:14px;height:14px;stroke:var(--teal);fill:none;stroke-width:2}
+.cert-name{font-size:13px;color:var(--text);font-weight:500}
+.cert-issuer{font-size:11px;color:var(--muted)}
+.cert-status{margin-left:auto;font-size:10px;padding:2px 8px;border-radius:100px;font-weight:500;white-space:nowrap}
+.in-progress{background:#faeeda;color:#854f0b}
+.planned{background:#f1f0e8;color:#5f5e5a}
+.earned{background:#e1f5ee;color:#0f6e56}
+
+/* VOLUNTEERING */
+.vol-card{background:var(--card);border:0.5px solid var(--border);border-radius:10px;padding:0.9rem 1.25rem;display:flex;gap:12px;align-items:flex-start}
+.vol-dot{width:8px;height:8px;background:var(--teal-mid);border-radius:50%;margin-top:6px;flex-shrink:0}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;padding:1.5rem;font-size:12px}
+
+@media(max-width:680px){
+  .grid{grid-template-columns:1fr}
+  .header-right{display:none}
+  h1{font-size:1.9rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div>
+        <div class="avatar">SP</div>
+        <h1>Sandor Pecsi</h1>
+        <div class="tagline">BSc Cybersecurity · Liverpool John Moores University</div>
+      </div>
+      <div class="header-right" style="text-align:right">
+        <div class="status-badge">Open to placement &amp; internship</div>
+        <div class="header-sub" style="margin-top:0.75rem">Runcorn, Cheshire · UK</div>
+        <div class="header-sub">Hungarian &amp; English (C1 Advanced)</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="socials">
+  <div class="container">
+    <div class="socials-inner">
+
+      <a class="social-link" href="mailto:psandor1982@gmail.com">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="fill:none;width:14px;height:14px">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>
+        </svg>
+        psandor1982@gmail.com
+      </a>
+
+      <a class="social-link" href="tel:07711283425">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="fill:none;width:14px;height:14px">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l.61-.62a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        07711 283425
+      </a>
+
+      <!-- ✏️ UPDATE: Replace href with your real LinkedIn URL -->
+      <a class="social-link" href="https://linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank">
+        <svg class="si" viewBox="0 0 24 24">
+          <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+          <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+        LinkedIn
+      </a>
+
+      <!-- ✏️ UPDATE: Replace href with your real GitHub URL -->
+      <a class="social-link" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank">
+        <svg class="si" viewBox="0 0 24 24">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+        </svg>
+        GitHub
+      </a>
+
+      <!-- ✏️ UPDATE: Replace href with your TryHackMe profile URL -->
+      <a class="social-link" href="https://tryhackme.com/p/YOUR-USERNAME" target="_blank">
+        <svg class="si" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        TryHackMe
+      </a>
+
+      <!-- ✏️ UPDATE: Replace href with your Hack The Box profile URL -->
+      <a class="social-link" href="https://app.hackthebox.com/profile/YOUR-ID" target="_blank">
+        <svg class="si" viewBox="0 0 24 24">
+          <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+        </svg>
+        Hack The Box
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+    <div class="grid">
+
+      <!-- SIDEBAR -->
+      <aside>
+
+        <section>
+          <h2><span class="dot"></span>Contact</h2>
+          <div class="info-row">
+            <div class="info-item">
+              <span class="info-label">Location</span>
+              <span class="info-value">Runcorn, Cheshire WA7 2EL</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Phone</span>
+              <span class="info-value">07711 283425</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Email</span>
+              <span class="info-value"><a href="mailto:psandor1982@gmail.com">psandor1982@gmail.com</a></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Languages</span>
+              <span class="info-value">Hungarian (native) · English C1</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2><span class="dot"></span>Technical skills</h2>
+          <div class="skills-grid">
+            <div class="skill-row">
+              <div class="skill-label"><span>Electronics &amp; hardware</span><span>90%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label"><span>Network security</span><span>65%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label"><span>Programming (Python / web)</span><span>60%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label"><span>Digital forensics</span><span>55%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:55%"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label"><span>Systems thinking</span><span>75%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2><span class="dot"></span>Tools &amp; tech</h2>
+          <div class="tag-list">
+            <span class="tag">Kali Linux</span>
+            <span class="tag">Wireshark</span>
+            <span class="tag">Nmap</span>
+            <span class="tag">Python</span>
+            <span class="tag">Metasploit</span>
+            <span class="tag">Burp Suite</span>
+            <span class="tag">VirtualBox</span>
+            <span class="tag">Git</span>
+            <span class="tag">SAP</span>
+          </div>
+        </section>
+
+        <section>
+          <h2><span class="dot"></span>Soft skills</h2>
+          <div class="tag-list">
+            <span class="tag tag-gray">Technical troubleshooting</span>
+            <span class="tag tag-gray">Team leadership</span>
+            <span class="tag tag-gray">Process optimisation</span>
+            <span class="tag tag-gray">Lean Six Sigma</span>
+            <span class="tag tag-gray">Analytical thinking</span>
+            <span class="tag tag-gray">Customer service</span>
+          </div>
+        </section>
+
+        <section>
+          <h2><span class="dot"></span>Interests</h2>
+          <div class="tag-list">
+            <span class="tag tag-gray">Electronics repair</span>
+            <span class="tag tag-gray">Self-learning IT &amp; security</span>
+            <span class="tag tag-gray">Swimming</span>
+            <span class="tag tag-gray">Family &amp; nature</span>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div>
+
+        <section>
+          <h2><span class="dot"></span>About</h2>
+          <p class="about-text">
+            Motivated cybersecurity student at Liverpool John Moores University with a strong background in electronics, hardware repair, and technical troubleshooting built across a decade of industry experience. Having achieved 78%+ at Level 4 and 82.66% in my Foundation Year, I bring both academic rigour and real-world practical skills to the security field. My goal is to build a career in cybersecurity and IT, contributing to secure and sustainable infrastructure — particularly in organisations where technology and operational resilience intersect.
+          </p>
+        </section>
+
+        <section>
+          <h2><span class="dot"></span>Education</h2>
+
+          <div class="edu-card">
+            <div class="edu-header">
+              <div>
+                <h3>BSc (Hons) Cyber Security</h3>
+                <div class="edu-meta">Liverpool John Moores University · 2023 – 2027</div>
+              </div>
+              <span class="edu-badge">In progress</span>
+            </div>
+            <div class="level-pills">
+              <span class="level-pill done">Foundation (L3) – 82.66%</span>
+              <span class="level-pill done">Level 4 – 78%+</span>
+              <span class="level-pill done">Level 5 – Complete</span>
+              <span class="level-pill upcoming">Level 6 – Sept 2025</span>
+            </div>
+            <div class="tag-list" style="margin-top:0.75rem">
+              <span class="tag tag-gray">Programming</span>
+              <span class="tag tag-gray">Computer Systems</span>
+              <span class="tag tag-gray">Web Development</span>
+              <span class="tag tag-gray">Data Modelling</span>
+              <span class="tag tag-gray">Computer Forensics</span>
+            </div>
+          </div>
+
+          <div class="edu-card" style="border-left-color:#aaa">
+            <div class="edu-header">
+              <div>
+                <h3>Certificate of Higher Education – Flux Core Welder</h3>
+                <div class="edu-meta">MTESZ · Nyiregyhaza · 2010</div>
+              </div>
+              <span class="edu-badge" style="background:#f1f0e8;color:#5f5e5a">87% average</span>
+            </div>
+          </div>
+
+          <div class="edu-card" style="border-left-color:#aaa">
+            <div class="edu-header">
+              <div>
+                <h3>GCSEs Leaving Certificate – Electronics</h3>
+                <div class="edu-meta">Banki Donat Technical Upper Secondary School · Nyiregyhaza · 2000</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2><span class="dot"></span>Experience</h2>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Repair Technician</div>
+                <div class="exp-org">360 Vision Technology · Runcorn</div>
+              </div>
+              <div class="exp-date">Jan 2022 – Present</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Diagnosed and rectified faults in electronic systems, enhancing operational performance</li>
+              <li>Conducted comprehensive reworks and detailed diagnostics</li>
+              <li>Reduced external repair costs through strategic troubleshooting</li>
+              <li>Optimised processes to improve repair turnaround time</li>
+              <li>Collaborated with teams to resolve complex mechanical issues and reduce downtime</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Shop Manager</div>
+                <div class="exp-org">Hungarian Sausage Ltd · Warrington</div>
+              </div>
+              <div class="exp-date">Aug 2020 – Mar 2021</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Oversaw stock control, customer service, and daily operations</li>
+              <li>Optimised store efficiency and organisation</li>
+              <li>Ensured compliance with Trading Standards regulations</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Repair Technician</div>
+                <div class="exp-org">Flextronics · Warrington</div>
+              </div>
+              <div class="exp-date">Jan 2020 – Aug 2020</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Hardware testing to ensure compliance with stringent quality standards</li>
+              <li>Component-level fault diagnosis and resolution</li>
+              <li>Set up and verified equipment functionality and performance</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Hearing Aid Technician</div>
+                <div class="exp-org">Phonak UK · Warrington</div>
+              </div>
+              <div class="exp-date">Mar 2017 – Aug 2019</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Assembly, repair, and QA of hearing aids using microscope and precision soldering</li>
+              <li>Managed stock allocation on SAP for timely maintenance operations</li>
+              <li>Consistently achieved daily targets while accelerating customer service response</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Team Leader – SMT Debug &amp; Rework</div>
+                <div class="exp-org">Jabil Circuit Hungary Ltd · Tiszaujvaros, Hungary</div>
+              </div>
+              <div class="exp-date">Feb 2010 – Oct 2013</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Led SMT debug and rework teams, driving troubleshooting and problem resolution</li>
+              <li>Monitored performance and developed improvement plans</li>
+              <li>Applied Lean Six Sigma methods to enhance operational efficiency</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2><span class="dot"></span>Projects &amp; labs</h2>
+
+          <div class="project-card">
+            <div class="project-header">
+              <h3>Home security lab</h3>
+              <span class="project-badge homelab">Home lab</span>
+            </div>
+            <p class="project-desc">Built a virtualised network environment using VirtualBox with Kali Linux and intentionally vulnerable targets. Practised scanning, enumeration, and exploitation techniques in an isolated setup — leveraging existing hardware diagnostics skills to understand system-level behaviour.</p>
+            <div class="tag-list"><span class="tag">Kali Linux</span><span class="tag">VirtualBox</span><span class="tag">Nmap</span><span class="tag">Metasploit</span></div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <h3>CTF challenges – TryHackMe / Hack The Box</h3>
+              <span class="project-badge ctf">CTF</span>
+            </div>
+            <p class="project-desc">Actively working through rooms and machines covering web exploitation, privilege escalation, and digital forensics. Publishing write-ups and notes on GitHub to document methodology and progress.</p>
+            <div class="tag-list"><span class="tag">TryHackMe</span><span class="tag">HTB</span><span class="tag">Burp Suite</span><span class="tag">Python</span></div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <h3>University coursework – Level 4 &amp; 5</h3>
+              <span class="project-badge proj">Academic</span>
+            </div>
+            <p class="project-desc">Projects spanning programming fundamentals, computer forensics, web development, and data modelling. Achieved 78%+ at Level 4, demonstrating strong systems thinking and security principles across all modules.</p>
+            <div class="tag-list"><span class="tag">Python</span><span class="tag">Web Dev</span><span class="tag">Forensics</span><span class="tag">Data Modelling</span></div>
+          </div>
+        </section>
+
+        <section>
+          <h2><span class="dot"></span>Certifications</h2>
+          <div class="cert-list">
+            <div class="cert-item">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div>
+                <div class="cert-name">CompTIA Security+</div>
+                <div class="cert-issuer">CompTIA</div>
+              </div>
+              <span class="cert-status planned">Planned</span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div>
+                <div class="cert-name">Google Cybersecurity Certificate</div>
+                <div class="cert-issuer">Google / Coursera</div>
+              </div>
+              <span class="cert-status planned">Planned</span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div>
+                <div class="cert-name">eJPT – Junior Penetration Tester</div>
+                <div class="cert-issuer">INE / eLearnSecurity</div>
+              </div>
+              <span class="cert-status planned">Planned</span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div>
+                <div class="cert-name">Lean Six Sigma</div>
+                <div class="cert-issuer">Jabil Circuit – applied in industry</div>
+              </div>
+              <span class="cert-status earned">Applied</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2><span class="dot"></span>Volunteering</h2>
+          <div class="vol-card">
+            <div class="vol-dot"></div>
+            <div>
+              <h3 style="font-size:13.5px">Olio Food Waste Volunteer</h3>
+              <p style="font-size:12.5px;margin-top:3px">Collects surplus food from local retailers (Tesco, Sainsbury's) and redistributes it within the community — supporting vulnerable people and reducing food waste across Runcorn and Warrington.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2><span class="dot"></span>Career goals</h2>
+          <p class="about-text">To build a career in cybersecurity and IT, supporting secure and sustainable infrastructure. Keen to contribute to organisations where technology meets operational resilience — particularly in sectors balancing modern systems with critical asset preservation.</p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    Sandor Pecsi · Cybersecurity Portfolio · psandor1982@gmail.com
+  </div>
+</footer>
+
+</body>
+</html>
