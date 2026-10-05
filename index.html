@@ -56,9 +56,14 @@ p,li{color:var(--muted);font-size:13.5px}
 /* SKILLS BARS */
 .skills-grid{display:flex;flex-direction:column;gap:0.65rem}
 .skill-row{display:flex;flex-direction:column;gap:4px}
-.skill-label{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted)}
+.skill-label{display:flex;justify-content:space-between;gap:6px;font-size:11.5px;color:var(--muted)}
+.skill-level{color:var(--teal);font-weight:500;white-space:nowrap}
 .skill-bar{height:3px;background:var(--border);border-radius:2px}
 .skill-fill{height:100%;background:var(--teal-mid);border-radius:2px}
+.lvl-adv{width:90%}
+.lvl-pro{width:70%}
+.lvl-work{width:50%}
+.skills-key{font-size:10.5px;color:var(--muted);margin-top:0.7rem;line-height:1.5}
 
 /* TAGS */
 .tag-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:0.5rem}
@@ -77,6 +82,11 @@ p,li{color:var(--muted);font-size:13.5px}
 .level-pill{font-size:11px;padding:2px 9px;border-radius:100px;font-weight:500}
 .done{background:#e1f5ee;color:#0f6e56}
 .upcoming{background:#faeeda;color:#854f0b}
+.edu-subhead{font-size:11.5px;font-weight:500;color:var(--text);margin-top:0.85rem}
+.edu-highlights{list-style:none;margin-top:0.35rem;display:flex;flex-direction:column;gap:2px}
+.edu-highlights li{font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;gap:1rem;border-bottom:0.5px dashed var(--border);padding:2px 0}
+.edu-highlights li:last-child{border-bottom:none}
+.edu-highlights strong{color:var(--teal);font-weight:500;font-family:'DM Mono',monospace;font-size:12px}
 .enic-box{margin-top:0.55rem;background:#f5f9ff;border:0.5px solid #c8ddf5;border-radius:6px;padding:0.45rem 0.8rem;display:flex;flex-direction:column;gap:2px}
 .enic-label{font-size:10px;text-transform:uppercase;letter-spacing:0.07em;color:#185fa5;font-weight:600}
 .enic-value{font-size:12px;color:#2c4a6e}
@@ -98,6 +108,8 @@ p,li{color:var(--muted);font-size:13.5px}
 .homelab{background:#fbeaf0;color:#993556}
 .proj{background:#eaf3de;color:#3b6d11}
 .project-desc{font-size:12.5px;color:var(--muted);margin-top:0.35rem;line-height:1.7}
+.project-bullets{margin-top:0.45rem;padding-left:1.1rem}
+.project-bullets li{font-size:12.5px;color:var(--muted);margin-bottom:3px}
 
 /* CERTS */
 .cert-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;padding:0.4rem 1.25rem}
@@ -119,10 +131,13 @@ p,li{color:var(--muted);font-size:13.5px}
 /* FOOTER */
 footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;padding:1.5rem;font-size:12px}
 
+a:focus-visible{outline:2px solid var(--teal-mid);outline-offset:2px;border-radius:3px}
+
 @media(max-width:680px){
   .grid{grid-template-columns:1fr}
   .header-right{display:none}
   h1{font-size:1.9rem}
+  .edu-header{flex-direction:column;gap:0.4rem}
 }
 </style>
 </head>
@@ -137,7 +152,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
         <div class="tagline">BSc Cybersecurity · Liverpool John Moores University</div>
       </div>
       <div class="header-right" style="text-align:right">
-        <div class="status-badge">Open to placement &amp; internship</div>
+        <div class="status-badge">Final year · open to graduate roles 2027</div>
         <div class="header-sub" style="margin-top:0.75rem">Runcorn, Cheshire · UK</div>
         <div class="header-sub">Hungarian &amp; English (C1 Advanced)</div>
       </div>
@@ -156,15 +171,8 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
         psandor1982@gmail.com
       </a>
 
-      <a class="social-link" href="tel:07711283425">
-        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="fill:none;width:14px;height:14px">
-          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l.61-.62a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-        </svg>
-        07711 283425
-      </a>
-
-  <!-- Linkedin -->
-      <a class="social-link" href="https://www.linkedin.com/in/sandor-pecsi-399708bb/" target="_blank">
+      <!-- LinkedIn -->
+      <a class="social-link" href="https://www.linkedin.com/in/sandor-pecsi-399708bb/" target="_blank" rel="noopener">
         <svg class="si" viewBox="0 0 24 24">
           <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
           <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
@@ -173,23 +181,23 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
       </a>
 
       <!-- GitHub -->
-      <a class="social-link" href="https://github.com/psandor1982" target="_blank">
+      <a class="social-link" href="https://github.com/psandor1982" target="_blank" rel="noopener">
         <svg class="si" viewBox="0 0 24 24">
           <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
         </svg>
         GitHub
       </a>
 
-      <!--  TryHackMe -->
-      <a class="social-link" href="https://tryhackme.com/p/psandor1982" target="_blank">
+      <!-- TryHackMe -->
+      <a class="social-link" href="https://tryhackme.com/p/psandor1982" target="_blank" rel="noopener">
         <svg class="si" viewBox="0 0 24 24">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
         </svg>
         TryHackMe
       </a>
 
-      <!--  Hack The Box  -->
-      <a class="social-link" href="https://profile.hackthebox.com/profile/019df238-03f0-724a-85f7-98ae2841c512" target="_blank">
+      <!-- Hack The Box -->
+      <a class="social-link" href="https://profile.hackthebox.com/profile/019df238-03f0-724a-85f7-98ae2841c512" target="_blank" rel="noopener">
         <svg class="si" viewBox="0 0 24 24">
           <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
         </svg>
@@ -212,15 +220,15 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
           <div class="info-row">
             <div class="info-item">
               <span class="info-label">Location</span>
-              <span class="info-value">Runcorn, Cheshire WA7 2EL</span>
-            </div>
-            <div class="info-item">
-              <span class="info-label">Phone</span>
-              <span class="info-value">07711 283425</span>
+              <span class="info-value">Runcorn, Cheshire · UK</span>
             </div>
             <div class="info-item">
               <span class="info-label">Email</span>
               <span class="info-value"><a href="mailto:psandor1982@gmail.com">psandor1982@gmail.com</a></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Phone</span>
+              <span class="info-value">Available on request</span>
             </div>
             <div class="info-item">
               <span class="info-label">Languages</span>
@@ -233,30 +241,39 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
           <h2><span class="dot"></span>Technical skills</h2>
           <div class="skills-grid">
             <div class="skill-row">
-              <div class="skill-label"><span>Electronics &amp; hardware</span><span>90%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+              <div class="skill-label"><span>Electronics &amp; hardware</span><span class="skill-level">Advanced</span></div>
+              <div class="skill-bar"><div class="skill-fill lvl-adv"></div></div>
             </div>
             <div class="skill-row">
-              <div class="skill-label"><span>Network security</span><span>65%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+              <div class="skill-label"><span>Penetration testing</span><span class="skill-level">Proficient</span></div>
+              <div class="skill-bar"><div class="skill-fill lvl-pro"></div></div>
             </div>
             <div class="skill-row">
-              <div class="skill-label"><span>Programming (Python / web)</span><span>60%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-            </div>
-             <div class="skill-row">
-              <div class="skill-label"><span>Programming (Java / web)</span><span>60%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+              <div class="skill-label"><span>Databases (SQL / NoSQL)</span><span class="skill-level">Proficient</span></div>
+              <div class="skill-bar"><div class="skill-fill lvl-pro"></div></div>
             </div>
             <div class="skill-row">
-              <div class="skill-label"><span>Digital forensics</span><span>55%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+              <div class="skill-label"><span>Web development</span><span class="skill-level">Proficient</span></div>
+              <div class="skill-bar"><div class="skill-fill lvl-pro"></div></div>
             </div>
             <div class="skill-row">
-              <div class="skill-label"><span>Systems thinking</span><span>75%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+              <div class="skill-label"><span>Secure software (Python / Java)</span><span class="skill-level">Proficient</span></div>
+              <div class="skill-bar"><div class="skill-fill lvl-pro"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label"><span>Security risk management</span><span class="skill-level">Working</span></div>
+              <div class="skill-bar"><div class="skill-fill lvl-work"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label"><span>Network security</span><span class="skill-level">Working</span></div>
+              <div class="skill-bar"><div class="skill-fill lvl-work"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label"><span>Digital forensics</span><span class="skill-level">Working</span></div>
+              <div class="skill-bar"><div class="skill-fill lvl-work"></div></div>
             </div>
           </div>
+          <p class="skills-key">Advanced: years of professional use. Proficient: assessed university work and labs. Working: solid foundations, still building.</p>
         </section>
 
         <section>
@@ -265,10 +282,11 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
             <span class="tag">Kali Linux</span>
             <span class="tag">Wireshark</span>
             <span class="tag">Nmap</span>
-            <span class="tag">Python</span>
-            <span class="tag">Java</span>
             <span class="tag">Metasploit</span>
             <span class="tag">Burp Suite</span>
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">SQL</span>
             <span class="tag">VirtualBox</span>
             <span class="tag">Proxmox</span>
             <span class="tag">Git</span>
@@ -306,7 +324,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
         <section>
           <h2><span class="dot"></span>About</h2>
           <p class="about-text">
-            Motivated cybersecurity student at Liverpool John Moores University with a strong background in electronics, hardware repair, and technical troubleshooting built across a decade of industry experience. Having achieved 78%+ at Level 4 and 82+% in my Foundation Year, I bring both academic rigour and real-world practical skills to the security field. My goal is to build a career in cybersecurity and IT, contributing to secure and sustainable infrastructure — particularly in organisations where technology and operational resilience intersect.
+            Final-year Cyber Security student at Liverpool John Moores University, graduating in 2027, with a decade of industry experience in electronics, hardware repair and technical troubleshooting. I've achieved consistently strong results across every stage of the degree: 82.66% at Foundation, 78.83% at Level 4 and 74.2% at Level 5, with assessed work in penetration testing, secure software development and information security management. I bring academic rigour together with real-world, hands-on problem solving, and I'm looking to build a career in cybersecurity and IT, contributing to secure and sustainable infrastructure where technology and operational resilience meet.
           </p>
         </section>
 
@@ -319,21 +337,34 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
                 <h3>BSc (Hons) Cyber Security</h3>
                 <div class="edu-meta">Liverpool John Moores University · 2023 – 2027</div>
               </div>
-              <span class="edu-badge">In progress</span>
+              <span class="edu-badge">Final year</span>
             </div>
             <div class="level-pills">
               <span class="level-pill done">Foundation (L3) – 82.66%</span>
-              <span class="level-pill done">Level 4 – 78%+</span>
-              <span class="level-pill done">Level 5 – Complete</span>
-              <span class="level-pill upcoming">Level 6 – Sept 2026</span>
+              <span class="level-pill done">Level 4 – 78.83%</span>
+              <span class="level-pill done">Level 5 – 74.2%</span>
+              <span class="level-pill upcoming">Level 6 – in progress 2026/27</span>
             </div>
-            <div class="tag-list" style="margin-top:0.75rem">
-              <span class="tag tag-gray">Programming</span>
-              <span class="tag tag-gray">Computer Systems</span>
-              <span class="tag tag-gray">Web Development</span>
-              <span class="tag tag-gray">Data Modelling</span>
-              <span class="tag tag-gray">Computer Forensics</span>
+
+            <div class="edu-subhead">Key Level 5 modules</div>
+            <div class="tag-list" style="margin-top:0.35rem">
+              <span class="tag tag-gray">System Penetration Testing</span>
+              <span class="tag tag-gray">Secure Software Development</span>
+              <span class="tag tag-gray">Information Security Management</span>
+              <span class="tag tag-gray">Database Systems</span>
+              <span class="tag tag-gray">Operating Systems</span>
+              <span class="tag tag-gray">Group Project</span>
             </div>
+
+            <div class="edu-subhead">Highlights</div>
+            <ul class="edu-highlights">
+              <li>Penetration testing – technical analysis task <strong>93%</strong></li>
+              <li>Introduction to Web Development <strong>92%</strong></li>
+              <li>Data Modelling <strong>90%</strong></li>
+              <li>Programming <strong>89%</strong></li>
+              <li>Database Systems (SQL &amp; NoSQL) <strong>87%</strong></li>
+              <li>Operating Systems <strong>84%</strong></li>
+            </ul>
           </div>
 
           <div class="edu-card" style="border-left-color:#aaa">
@@ -384,7 +415,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
 
           <div style="background:#e6f1fb;border:0.5px solid #b8d4f0;border-radius:8px;padding:0.65rem 1rem;margin-top:-0.3rem;margin-bottom:0.5rem;display:flex;gap:10px;align-items:flex-start">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#185fa5" stroke-width="2" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-            <p style="font-size:11.5px;color:#185fa5;margin:0">International qualifications verified by <strong>UK ENIC</strong> (ref: 4000988914) — the UK's official agency for international qualification recognition, on behalf of the Department for Education. Employers can verify at <a href="https://www.enic.org.uk/verification" target="_blank" style="color:#185fa5;font-weight:500">enic.org.uk/verification</a>.</p>
+            <p style="font-size:11.5px;color:#185fa5;margin:0">International qualifications verified by <strong>UK ENIC</strong> (ref: 4000988914) — the UK's official agency for international qualification recognition, on behalf of the Department for Education. Employers can verify at <a href="https://www.enic.org.uk/verification" target="_blank" rel="noopener" style="color:#185fa5;font-weight:500">enic.org.uk/verification</a>. University transcript available on request.</p>
           </div>
         </section>
 
@@ -474,6 +505,22 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
 
           <div class="project-card">
             <div class="project-header">
+              <h3>University security coursework – Level 5</h3>
+              <span class="project-badge proj">Academic</span>
+            </div>
+            <p class="project-desc">Assessed, hands-on security work from the second year of the degree (Level 5 average 74.2%):</p>
+            <ul class="project-bullets">
+              <li><strong>System Penetration Testing</strong> – technical analysis task (93%) applying penetration testing methodology, plus a research report</li>
+              <li><strong>Secure Software Development</strong> – software development project built with security in mind, with a presentation on a security task</li>
+              <li><strong>Information Security Management</strong> – security risk analysis (70%) and exam on security governance and controls</li>
+              <li><strong>Database Systems</strong> – SQL and NoSQL database development (87% in both)</li>
+              <li><strong>Group Project</strong> – team-based project portfolio and presentation</li>
+            </ul>
+            <div class="tag-list"><span class="tag">Pen testing</span><span class="tag">Secure dev</span><span class="tag">Risk analysis</span><span class="tag">SQL</span><span class="tag">NoSQL</span></div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
               <h3>Home security lab</h3>
               <span class="project-badge homelab">Home lab</span>
             </div>
@@ -488,15 +535,6 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
             </div>
             <p class="project-desc">Actively working through rooms and machines covering web exploitation, privilege escalation, and digital forensics. Publishing write-ups and notes on GitHub to document methodology and progress.</p>
             <div class="tag-list"><span class="tag">TryHackMe</span><span class="tag">HTB</span><span class="tag">Burp Suite</span><span class="tag">Python</span></div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <h3>University coursework – Level 4 &amp; 5</h3>
-              <span class="project-badge proj">Academic</span>
-            </div>
-            <p class="project-desc">Projects spanning programming fundamentals, computer forensics, web development, and data modelling. Achieved 78%+ at Level 4, demonstrating strong systems thinking and security principles across all modules.</p>
-            <div class="tag-list"><span class="tag">Python</span><span class="tag">Web Dev</span><span class="tag">Forensics</span><span class="tag">Data Modelling</span></div>
           </div>
         </section>
 
@@ -551,7 +589,7 @@ footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;pad
 
         <section>
           <h2><span class="dot"></span>Career goals</h2>
-          <p class="about-text">To build a career in cybersecurity and IT, supporting secure and sustainable infrastructure. Keen to contribute to organisations where technology meets operational resilience — particularly in sectors balancing modern systems with critical asset preservation.</p>
+          <p class="about-text">To start a graduate career in cybersecurity and IT from 2027, supporting secure and sustainable infrastructure. Keen to contribute to organisations where technology meets operational resilience — particularly in sectors balancing modern systems with critical asset preservation.</p>
         </section>
 
       </div>
